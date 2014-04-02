@@ -8,6 +8,7 @@ public:
 	virtual void test() {
 		printf("Now get test\n");
 	}
+
 };
 status_t BnTestService::onTransact(uint_t code, const Parcel& data,
 		Parcel* reply, uint32_t flags) {

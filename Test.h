@@ -23,6 +23,11 @@ namespace android
         TEST = IBinder::FIRST_CALL_TRANSACTION,
     };
 
+    class BpTestService: public BpInterface<ITestService> {
+    public:
+    	BpTestService(const sp<IBinder>& impl);
+    	virtual void test();
+    };
 }
 #endif
 
