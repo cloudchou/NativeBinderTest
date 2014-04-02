@@ -6,7 +6,7 @@ namespace android
     BnTestService::onTransact(uint_t code, const Parcel& data, Parcel* reply, uint32_t flags) {
         switch (code)
             {
-        case PRINT:
+        case TEST:
             {
                 printf("got the client msg\n");
                 CHECK_INTERFACE(ITest, data, reply);

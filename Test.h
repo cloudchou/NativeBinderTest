@@ -20,7 +20,7 @@ namespace android
 
     enum
     {
-        PRINT = IBinder::FIRST_CALL_TRANSACTION,
+        TEST = IBinder::FIRST_CALL_TRANSACTION,
     };
 
     class BpTestService : public BpInterface<ITestService>
@@ -34,7 +34,7 @@ namespace android
             printf("in the get Test\n");
             Parcel data, reply;
             data.writeInterfaceToken(ITestService::getInterfaceDescriptor());
-            remote()->transact(PRINT, data, &reply);
+            remote()->transact(TEST, data, &reply);
             printf("send Print %d\n", reply.readInt32());
         }
     };
