@@ -23,32 +23,6 @@ namespace android
         TEST = IBinder::FIRST_CALL_TRANSACTION,
     };
 
-    class BpTestService : public BpInterface<ITestService>
-    {
-    public:
-        BpTestService(const sp<IBinder>& impl) :
-                BpInterface<ITestService>(impl) {
-        }
-        virtual void
-        test() {
-            printf("in the get Test\n");
-            Parcel data, reply;
-            data.writeInterfaceToken(ITestService::getInterfaceDescriptor());
-            remote()->transact(TEST, data, &reply);
-            printf("send Print %d\n", reply.readInt32());
-        }
-    };
-
-    class BnTestService : public BnInterface<ITestService>
-    {
-    public:
-        virtual status_t
-        onTransact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags = 0);
-        virtual void
-        test() {
-            printf("Now get test\n");
-        }
-    };
 }
 #endif
 
